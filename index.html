@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#07111f" />
+  <title>飞机大战 | Airplane Battle</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="game-card">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">HORATIO MINI GAME</p>
+          <h1>飞机大战</h1>
+        </div>
+        <div class="top-actions">
+          <button id="pauseBtn" class="icon-btn" type="button" aria-label="暂停或继续">⏸</button>
+          <button id="muteBtn" class="icon-btn" type="button" aria-label="音效开关">🔊</button>
+        </div>
+      </header>
+
+      <div class="stats" aria-label="游戏状态">
+        <div class="stat"><span>分数</span><strong id="score">0</strong></div>
+        <div class="stat"><span>最高分</span><strong id="highScore">0</strong></div>
+        <div class="stat"><span>生命</span><strong id="lives">3</strong></div>
+        <div class="stat"><span>等级</span><strong id="level">1</strong></div>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas id="gameCanvas" width="480" height="720" aria-label="飞机大战游戏画布"></canvas>
+
+        <div id="startOverlay" class="overlay visible">
+          <div class="panel">
+            <div class="badge">ARCADE</div>
+            <h2>准备起飞</h2>
+            <p>击落敌机、躲避火力，尽可能刷新最高分。</p>
+            <button id="startBtn" class="primary-btn" type="button">开始游戏</button>
+            <div class="tips">
+              <span>移动：WASD / 方向键</span>
+              <span>射击：Space</span>
+              <span>暂停：P</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="gameOverOverlay" class="overlay">
+          <div class="panel">
+            <div class="badge danger">GAME OVER</div>
+            <h2>任务结束</h2>
+            <p>本局得分：<strong id="finalScore">0</strong></p>
+            <p class="small">最高分：<strong id="finalHighScore">0</strong></p>
+            <button id="restartBtn" class="primary-btn" type="button">再来一局</button>
+          </div>
+        </div>
+
+        <div id="pauseOverlay" class="pause-label">已暂停</div>
+      </div>
+
+      <footer class="footer-note">
+        <span>电脑支持键盘操作，手机支持拖动飞机并自动射击。</span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
